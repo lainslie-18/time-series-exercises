@@ -49,6 +49,16 @@ def combine_items_stores_sales(sales, items, stores):
     return df
 
 
+def get_store_data():
+    sales = get_zgulde_data('https://python.zgulde.net/api/v1/sales', 'sales')
+    items = get_zgulde_data('https://python.zgulde.net/api/v1/items', 'items')
+    stores = get_zgulde_data('https://python.zgulde.net/api/v1/stores', 'stores')
+
+    df = combine_items_stores_sales(sales, items, stores)
+
+    return df
+
+
 def acquire_open_power_systems_data():
     '''
     This function reads in csv data and returns a dataframe
